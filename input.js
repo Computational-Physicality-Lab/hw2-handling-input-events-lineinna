@@ -14,6 +14,8 @@ var isESC = false;
 var isTouch = false;
 var firstFinger = [0,0];
 var secondFinger = [0,0];
+var distanceX=0;
+var distanceY=0;
 //two fingers
 document.addEventListener('touchstart',(e)=>{
     if(e.touches.length===2){
@@ -28,20 +30,21 @@ document.addEventListener('touchstart',(e)=>{
 document.addEventListener('touchmove',(e)=>{
     if(e.touches===2&&selectedDiv!=null){
         e.preventDefault();
-        let distanceX = e.touches[0].pageX-e.touches[1].pageY-firstFinger[0]+secondFinger[0];
-        let distanceY = e.touches[0].pageX-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
+        distanceX = e.touches[0].pageX-e.touches[1].pageY-firstFinger[0]+secondFinger[0];
+        distanceY = e.touches[0].pageX-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
         if(distanceX*distanceX>distanceY*distanceY){
-            alert('x become bigger'+distanceX+selectedDiv.style.width)
+            console.log(selectedDiv.style.width)
+            console.log(distanceX)
             if(distanceX>0){
                 selectedDiv.style.width+=distanceX+'px';
-                alert('x become bigger'+distanceX+selectedDiv.style.width)
             }else{
                 if(selectedDiv.style.width>10+"px"){
                     selectedDiv.style.width-=distanceX+'px';
                 }
             }
         }else{
-            alert('x become bigger'+distanceX+selectedDiv.style.width)
+            console.log(selectedDiv.style.width)
+            console.log(distanceX)
             if(distanceY>0){
                 selectedDiv.style.height+=distanceY;
             }else{
