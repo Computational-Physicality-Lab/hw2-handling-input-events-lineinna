@@ -15,24 +15,50 @@ var isTouch = false;
 var firstFinger = [0,0];
 var secondFinger = [0,0];
 //two fingers
-
-//dbl touch
-
-//touch&drag
-firstT.addEventListener('touchstart',(e) => {
-    if (e.touches.length === 2) {
-        e.preventDefault();
+document.addEventListener('touchstart',(e)=>{
+    if(e.touches.length===2){
         firstFinger[0]=e.touches[0].pageX;
         firstFinger[1]=e.touches[1].pageY;
         secondFinger[0]=e.touches[0].pageX;
         secondFinger[1]=e.touches[1].pageY;
-    }else{
+    }else if(e.touches.length>2){
+
+    }
+});
+document.addEventListener('touchmove',(e)=>{
+    if(e.touches===2&&selectedDiv!=null){
+        e.preventDefault();
+        let distanceX = e.touches[0].pageX-e.touches[1].pageY-firstFinger[0]+secondFinger[0];
+        let distanceY = e.touches[0].pageX-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
+        if(distanceX*distanceX>distanceY*distanceY){
+            if(distanceX>0){
+                selectedDiv.style.width+=distanceX+'px';
+                alert('x become bigger'+distanceX+selectedDiv.style.width)
+            }else{
+                if(selectedDiv.style.width>10+"px"){
+                    selectedDiv.style.width-=distanceX+'px';
+                }
+            }
+        }else{
+            if(distanceY>0){
+                selectedDiv.style.height+=distanceY;
+            }else{
+                if(selectedDiv.style.height>10+"px"){
+                    selectedDiv.style.height-=distanceX+'px';
+                }
+            }
+        }
+    }
+});
+//dbl touch
+
+//touch&drag
+firstT.addEventListener('touchstart',(e) => {
         var touch = e.targetTouches[0];
         offset = [
             firstT.offsetLeft - touch.pageX,
             firstT.offsetTop - touch.pageY
         ];
-    }
 });
 secondT.addEventListener('touchstart',(e) => {
     var touch = e.targetTouches[0];
@@ -49,33 +75,9 @@ thirdT.addEventListener('touchstart',(e) => {
     ];
 });
 firstT.addEventListener('touchmove',(e) => {
-    if(e.touches.length === 2){
-        e.preventDefault();
-        let distanceX = e.touches[0].pageX-e.touches[1].pageY-firstFinger[0]+secondFinger[0];
-        let distanceY = e.touches[0].pageX-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
-        if(distanceX*distanceX>distanceY*distanceY){
-            if(distanceX>0){
-                firstT.style.width+=distanceX+'px';
-                alert('x become bigger'+distanceX+firstT.style.width)
-            }else{
-                if(firstT.style.width>10+"px"){
-                    firstT.style.width-=distanceX+'px';
-                }
-            }
-        }else{
-            if(distanceY>0){
-                firstT.style.height+=distanceY;
-            }else{
-                if(firstT.style.height>10+"px"){
-                    firstT.style.height-=distanceX+'px';
-                }
-            }
-        }
-    }else{
         var touch = e.targetTouches[0];
         firstT.style.left = touch.pageX + offset[0] + 'px';
         firstT.style.top = touch.pageY + offset[1] + 'px';
-    }
 });
 secondT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
