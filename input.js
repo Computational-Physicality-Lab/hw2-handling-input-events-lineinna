@@ -17,14 +17,21 @@ var isTouch = false;
 //dbl touch
 
 //touch&drag
+// firstT.addEventListener('touchstart',(e) => {
+//     var touch = e.targetTouches[0];
+//     offset = [
+//         firstT.offsetLeft - touch.pageX,
+//         firstT.offsetTop - touch.pageY
+//     ];
+// });
 firstT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
     offset = [
         firstT.offsetLeft - touch.pageX,
         firstT.offsetTop - touch.pageY
     ];
-    firstT.style.left = touch.pageX + 'px';
-    firstT.style.top = touch.pageY + 'px';
+    firstT.style.left = touch.pageX + offset[0] + 'px';
+    firstT.style.top = touch.pageY + offset[1] + 'px';
 });
 secondT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
