@@ -30,13 +30,14 @@ document.addEventListener('touchstart',(e)=>{
 document.addEventListener('touchmove',(e)=>{
     if(e.touches.length===2&&selectedDiv!=null){
         e.preventDefault();
-        distanceX = e.touches[0].pageX-e.touches[1].pageY-firstFinger[0]+secondFinger[0];
-        distanceY = e.touches[0].pageX-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
+        distanceX = e.touches[0].pageX-e.touches[1].pageX-firstFinger[0]+secondFinger[0];
+        distanceY = e.touches[0].pageY-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
         if(distanceX*distanceX>distanceY*distanceY){
             console.log(selectedDiv.style.width)
             console.log("x"+distanceX)
             if(distanceX>0){
                 selectedDiv.style.width+=distanceX+'px';
+                console.log(x>0);
             }else{
                 if(selectedDiv.style.width>10+"px"){
                     selectedDiv.style.width-=distanceX+'px';
