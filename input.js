@@ -229,7 +229,19 @@ thirdT.addEventListener("click",(e)=>{
 workspace.addEventListener("click",(e)=>{
     if(e.target.id=="workspace"){
         if(isTouch){
-            
+            mousePosition = {
+                x : event.clientX,
+                y : event.clientY
+            };
+            mouseDownDiv.style.left = (mousePosition.x ) + 'px';
+            mouseDownDiv.style.top  = (mousePosition.y ) + 'px';
+            document.ontouchstart = function (e) {
+                if(e.touches.length>1){
+                    isTouch = false;
+                    alert('dbtouch')
+                }
+            };
+            isMoved=true;
         }else{
             if(isESC){
                 isESC = false;
