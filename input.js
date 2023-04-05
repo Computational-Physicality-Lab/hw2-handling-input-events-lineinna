@@ -58,9 +58,9 @@ document.addEventListener('touchmove',(e)=>{
             // console.log(selectedDiv.style.width)
             // console.log("x"+distanceX)
             console.log(distanceX+parseInt(selectedDiv.style.width,10))
-            selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))/20+'px';
-            if(selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))/20<20){
-                selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))/20+'px';
+            selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))+'px';
+            if(selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))<20){
+                selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))+'px';
             }else{
                 selectedDiv.style.width=20+'px';   
             }
@@ -68,9 +68,9 @@ document.addEventListener('touchmove',(e)=>{
             // console.log(selectedDiv.style.width)
             // console.log("y"+distanceY)
             console.log(distanceY+parseInt(selectedDiv.style.height,10))
-            selectedDiv.style.height=(distanceY+parseInt(selectedDiv.style.height,10))/20+'px';
-            if((distanceY+parseInt(selectedDiv.style.height,10))/20<20){
-                selectedDiv.style.height=(distanceY+parseInt(selectedDiv.style.height,10))/20+'px';
+            selectedDiv.style.height=(distanceY+parseInt(selectedDiv.style.height,10))+'px';
+            if((distanceY+parseInt(selectedDiv.style.height,10))<20){
+                selectedDiv.style.height=(distanceY+parseInt(selectedDiv.style.height,10))+'px';
             }else{
                 selectedDiv.style.height=20+'px';
             }
