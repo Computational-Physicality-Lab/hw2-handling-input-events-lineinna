@@ -78,7 +78,6 @@ document.addEventListener('touchmove',(e)=>{
     }
 });
 //dbl touch
-
 //touch&drag
 firstT.addEventListener('touchstart',(e) => {
         var touch = e.targetTouches[0];
