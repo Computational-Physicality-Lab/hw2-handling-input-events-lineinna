@@ -17,13 +17,13 @@ var isTouch = false;
 //dbl touch
 
 //touch&drag
-firstT.addEventListener('touchstart',(e) => {
-    var touch = e.targetTouches[0];
-    offset = [
-        firstT.offsetLeft - touch.pageX,
-        firstT.offsetTop - touch.pageY
-    ];
-});
+// firstT.addEventListener('touchstart',(e) => {
+//     var touch = e.targetTouches[0];
+//     offset = [
+//         firstT.offsetLeft - touch.pageX,
+//         firstT.offsetTop - touch.pageY
+//     ];
+// });
 secondT.addEventListener('touchstart',(e) => {
     var touch = e.targetTouches[0];
     offset = [
