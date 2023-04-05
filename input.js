@@ -28,14 +28,13 @@ document.addEventListener('touchstart',(e)=>{
     }
 });
 document.addEventListener('touchmove',(e)=>{
-    console.log("touchmove"+e.touches[0]+e.touches[1])
     if(e.touches.length===2&&selectedDiv!=null){
         e.preventDefault();
         distanceX = e.touches[0].pageX-e.touches[1].pageY-firstFinger[0]+secondFinger[0];
         distanceY = e.touches[0].pageX-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
         if(distanceX*distanceX>distanceY*distanceY){
             console.log(selectedDiv.style.width)
-            console.log(distanceX)
+            console.log("x"+distanceX)
             if(distanceX>0){
                 selectedDiv.style.width+=distanceX+'px';
             }else{
@@ -45,7 +44,7 @@ document.addEventListener('touchmove',(e)=>{
             }
         }else{
             console.log(selectedDiv.style.width)
-            console.log(distanceX)
+            console.log("y"+distanceY)
             if(distanceY>0){
                 selectedDiv.style.height+=distanceY;
             }else{
