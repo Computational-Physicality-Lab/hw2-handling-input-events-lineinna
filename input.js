@@ -228,14 +228,18 @@ thirdT.addEventListener("click",(e)=>{
 })
 workspace.addEventListener("click",(e)=>{
     if(e.target.id=="workspace"){
-        if(isESC){
-            isESC = false;
+        if(isTouch){
+            
         }else{
-            if(selectedDiv!=null){
-                selectedDiv.style.backgroundColor="red";
+            if(isESC){
+                isESC = false;
+            }else{
+                if(selectedDiv!=null){
+                    selectedDiv.style.backgroundColor="red";
+                }
+                console.log(e.target.id);
+                selectedDiv = null;
             }
-            console.log(e.target.id);
-            selectedDiv = null;
         }
     }
-})
+});
