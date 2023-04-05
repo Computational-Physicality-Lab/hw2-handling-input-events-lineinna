@@ -15,8 +15,18 @@ var isTouch = false;
 //touch&drag
 firstT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
-      firstT.style.left = touch.pageX + 'px';
-      firstT.target.style.top = touch.pageY + 'px';
+    firstT.style.left = touch.pageX + 'px';
+    firstT.style.top = touch.pageY + 'px';
+});
+secondT.addEventListener('touchmove',(e) => {
+    var touch = e.targetTouches[0];
+    secondT.style.left = touch.pageX + 'px';
+    secondT.style.top = touch.pageY + 'px';
+});
+thirdT.addEventListener('touchmove',(e) => {
+    var touch = e.targetTouches[0];
+    thirdT.style.left = touch.pageX + 'px';
+    thirdT.style.top = touch.pageY + 'px';
 });
 //esc
 function savePosition() {
