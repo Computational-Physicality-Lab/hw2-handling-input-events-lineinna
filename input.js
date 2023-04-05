@@ -23,16 +23,16 @@ firstT.addEventListener("touchstart",(e) => {
     mouseDownDiv = firstT;
 });
 document.addEventListener("touchmove",(e) => {
-    event.preventDefault();
+    e.preventDefault();
     if (isTouch) {
         mousePosition = {
 
-            x : event.clientX,
-            y : event.clientY
+            x : e.clientX,
+            y : e.clientY
 
         };
-        mouseDownDiv.style.left = (mousePosition.x + offset[0]) + 'px';
-        mouseDownDiv.style.top  = (mousePosition.y + offset[1]) + 'px';
+        mouseDownDiv.style.left = (touch.pageX + offset[0]) + 'px';
+        mouseDownDiv.style.top  = (touch.pageY + offset[1]) + 'px';
         document.onmouseup = function () {
             isDown = false;
         };
