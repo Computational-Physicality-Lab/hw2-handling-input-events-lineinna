@@ -29,7 +29,7 @@ document.addEventListener('touchstart',(e)=>{
 });
 document.addEventListener('touchmove',(e)=>{
     console.log("touchmove"+e.touches[0]+e.touches[1])
-    if(e.touches===2&&selectedDiv!=null){
+    if(e.touches.length===2&&selectedDiv!=null){
         e.preventDefault();
         distanceX = e.touches[0].pageX-e.touches[1].pageY-firstFinger[0]+secondFinger[0];
         distanceY = e.touches[0].pageX-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
