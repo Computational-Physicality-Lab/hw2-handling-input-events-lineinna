@@ -12,6 +12,25 @@ var savedY = [0,0,0];
 var savedDiv = null;
 var isESC = false;
 var isTouch = false;
+
+//two fingers
+
+//dbl touch
+firstT.addEventListener('touchstart', function(e) {
+    savePosition();
+    isTouch = true;
+    mouseDownDiv = firstT;
+}, true);
+secondT.addEventListener('touchstart', function(e) {
+    savePosition();
+    isTouch = true;
+    mouseDownDiv = secondT;
+}, true);
+thirdT.addEventListener('touchstart', function(e) {
+    savePosition();
+    isTouch = true;
+    mouseDownDiv = thirdT;
+}, true);
 //touch&drag
 firstT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
@@ -151,6 +170,19 @@ document.addEventListener('mousemove', function(event) {
         mouseDownDiv.style.top  = (mousePosition.y + offset[1]) + 'px';
         document.onmouseup = function () {
             isDblclick = false;
+        };
+    }
+    if(isTouch){
+        mousePosition = {
+            x : event.clientX,
+            y : event.clientY
+        };
+        mouseDownDiv.style.left = (mousePosition.x ) + 'px';
+        mouseDownDiv.style.top  = (mousePosition.y ) + 'px';
+        document.ontouchstart = function (e) {
+            if(e.touches.length>1){
+                isTouch = false;
+            }
         };
     }
     isMoved = true;
