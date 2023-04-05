@@ -35,24 +35,11 @@ document.addEventListener('touchmove',(e)=>{
         if(distanceX*distanceX>distanceY*distanceY){
             console.log(selectedDiv.style.width)
             console.log("x"+distanceX)
-            if(distanceX>0){
-                selectedDiv.style.width+=distanceX+'px';
-                console.log(x>0);
-            }else{
-                if(selectedDiv.style.width>10+"px"){
-                    selectedDiv.style.width-=distanceX+'px';
-                }
-            }
+            selectedDiv.style.width=distanceX+parseInt(selectedDiv.style.width,10)+'px';
         }else{
             console.log(selectedDiv.style.width)
             console.log("y"+distanceY)
-            if(distanceY>0){
-                selectedDiv.style.height+=distanceY;
-            }else{
-                if(selectedDiv.style.height>10+"px"){
-                    selectedDiv.style.height-=distanceX+'px';
-                }
-            }
+            selectedDiv.style.height=distanceY+parseInt(selectedDiv.style.height,10)+'px';
         }
     }
 });
