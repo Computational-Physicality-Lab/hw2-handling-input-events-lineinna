@@ -12,25 +12,10 @@ var savedY = [0,0,0];
 var savedDiv = null;
 var isESC = false;
 var isTouch = false;
-
 //two fingers
 
 //dbl touch
-firstT.addEventListener('touchstart', function(e) {
-    savePosition();
-    isTouch = true;
-    mouseDownDiv = firstT;
-}, true);
-secondT.addEventListener('touchstart', function(e) {
-    savePosition();
-    isTouch = true;
-    mouseDownDiv = secondT;
-}, true);
-thirdT.addEventListener('touchstart', function(e) {
-    savePosition();
-    isTouch = true;
-    mouseDownDiv = thirdT;
-}, true);
+
 //touch&drag
 firstT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
@@ -172,20 +157,6 @@ document.addEventListener('mousemove', function(event) {
             isDblclick = false;
         };
     }
-    if(isTouch){
-        mousePosition = {
-            x : event.clientX,
-            y : event.clientY
-        };
-        mouseDownDiv.style.left = (mousePosition.x ) + 'px';
-        mouseDownDiv.style.top  = (mousePosition.y ) + 'px';
-        document.ontouchstart = function (e) {
-            if(e.touches.length>1){
-                isTouch = false;
-                alert('dbtouch')
-            }
-        };
-    }
     isMoved = true;
 }, true);
 //click&color
@@ -226,52 +197,16 @@ thirdT.addEventListener("click",(e)=>{
         selectedDiv.style.backgroundColor = "#00f";
     }
 })
-workspace.document.ontouchstart = function (e) {
-    if(e.touches.length>1){
-        isTouch = false;
-        alert('dbtouch')
-    }else{
-        mousePosition = {
-            x : event.clientX,
-            y : event.clientY
-        };
-        mouseDownDiv.style.left = (mousePosition.x ) + 'px';
-        mouseDownDiv.style.top  = (mousePosition.y ) + 'px';
-        document.ontouchstart = function (e) {
-            if(e.touches.length>1){
-                isTouch = false;
-                alert('dbtouch')
-            }
-        };
-        isMoved=true;
-    }
-};
 workspace.addEventListener("click",(e)=>{
     if(e.target.id=="workspace"){
-        if(isTouch){
-            mousePosition = {
-                x : event.clientX,
-                y : event.clientY
-            };
-            mouseDownDiv.style.left = (mousePosition.x ) + 'px';
-            mouseDownDiv.style.top  = (mousePosition.y ) + 'px';
-            document.ontouchstart = function (e) {
-                if(e.touches.length>1){
-                    isTouch = false;
-                    alert('dbtouch')
-                }
-            };
-            isMoved=true;
+        if(isESC){
+            isESC = false;
         }else{
-            if(isESC){
-                isESC = false;
-            }else{
-                if(selectedDiv!=null){
-                    selectedDiv.style.backgroundColor="red";
-                }
-                console.log(e.target.id);
-                selectedDiv = null;
+            if(selectedDiv!=null){
+                selectedDiv.style.backgroundColor="red";
             }
+            console.log(e.target.id);
+            selectedDiv = null;
         }
     }
-});
+})
