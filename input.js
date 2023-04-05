@@ -11,6 +11,38 @@ var savedX = [0,0,0];
 var savedY = [0,0,0];
 var savedDiv = null;
 var isESC = false;
+var isTouch = false;
+//touch&drag
+firstT.addEventListener("touchstart",(e) => {
+    savePosition();
+    isTouch = true;
+    offset = [
+        firstT.offsetLeft - e.clientX,
+        firstT.offsetTop - e.clientY
+    ];
+    mouseDownDiv = firstT;
+});
+document.addEventListener("touchmove",(e) => {
+    event.preventDefault();
+    if (isTouch) {
+        mousePosition = {
+
+            x : event.clientX,
+            y : event.clientY
+
+        };
+        mouseDownDiv.style.left = (mousePosition.x + offset[0]) + 'px';
+        mouseDownDiv.style.top  = (mousePosition.y + offset[1]) + 'px';
+        document.onmouseup = function () {
+            isDown = false;
+        };
+    }
+    isMoved = true;
+},true);
+document.addEventListener("touchend",(e)=>{
+    mouseDownDiv = null;
+    console.log("touchend");
+},true);
 //esc
 function savePosition() {
     savedX[0]=firstT.offsetLeft;
