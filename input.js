@@ -24,7 +24,21 @@ document.addEventListener('touchstart',(e)=>{
         secondFinger[0]=e.touches[1].pageX;
         secondFinger[1]=e.touches[1].pageY;
     }else if(e.touches.length>2){
-
+        isDblclick =  false;
+        isDown = false;
+        isMoved = false;
+        mouseDownDiv = null;
+        firstT.style.left = savedX[0]+'px';
+        firstT.style.top = savedY[0]+'px';
+        secondT.style.left = savedX[1]+'px';
+        secondT.style.top = savedY[1]+'px';
+        thirdT.style.left = savedX[2]+'px';
+        thirdT.style.top = savedY[2]+'px';
+        selectedDiv = savedDiv;
+        if(selectedDiv!=null){
+            selectedDiv.style.backgroundColor="00f";
+        }
+        isESC = true;
     }
 });
 document.addEventListener('touchmove',(e)=>{
