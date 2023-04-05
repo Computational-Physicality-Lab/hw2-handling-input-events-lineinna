@@ -53,7 +53,6 @@ firstT.addEventListener('touchmove',(e) => {
         e.preventDefault();
         let distanceX = e.touches[0].pageX-e.touches[1].pageY-firstFinger[0]+secondFinger[0];
         let distanceY = e.touches[0].pageX-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
-        alert("2finger");
         if(distanceX*distanceX>distanceY*distanceY){
             if(distanceX>0){
                 firstT.style.width+=distanceX+'px';
