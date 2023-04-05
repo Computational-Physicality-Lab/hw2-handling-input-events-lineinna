@@ -20,8 +20,8 @@ var distanceY=0;
 document.addEventListener('touchstart',(e)=>{
     if(e.touches.length===2){
         firstFinger[0]=e.touches[0].pageX;
-        firstFinger[1]=e.touches[1].pageY;
-        secondFinger[0]=e.touches[0].pageX;
+        firstFinger[1]=e.touches[0].pageY;
+        secondFinger[0]=e.touches[1].pageX;
         secondFinger[1]=e.touches[1].pageY;
     }else if(e.touches.length>2){
 
