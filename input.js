@@ -16,29 +16,29 @@ var isTouch = false;
 firstT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
     offset = [
-        firstT.offsetLeft - e.clientX,
-        firstT.offsetTop - e.clientY
+        firstT.offsetLeft - e.touches[0].clientX,
+        firstT.offsetTop - e.touches[0].clientY
     ];
-    firstT.style.left = touch.touches[0].pageX + offset[0]+ 'px';
-    firstT.style.top = touch.touches[0].pageY + offset[1]+ 'px';
+    firstT.style.left = touch.pageX + offset[0]+ 'px';
+    firstT.style.top = touch.pageY + offset[1]+ 'px';
 });
 secondT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
     offset = [
-        secondT.offsetLeft - e.clientX,
-        secondT.offsetTop - e.clientY
+        secondT.offsetLeft - e.touches[0].clientX,
+        secondT.offsetTop - e.touches[0].clientY
     ];
-    secondT.style.left = touch.touches[0].pageX + offset[0]+ 'px';
-    secondT.style.top = touch.touches[0].pageY + offset[1]+ 'px';
+    secondT.style.left = touch.pageX + offset[0]+ 'px';
+    secondT.style.top = touch.pageY + offset[1]+ 'px';
 });
 thirdT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
     offset = [
-        thirdT.offsetLeft - e.clientX,
-        thirdT.offsetTop - e.clientY
+        thirdT.offsetLeft - e.touches[0].clientX,
+        thirdT.offsetTop - e.touches[0].clientY
     ];
-    thirdT.style.left = touch.touches[0].pageX + offset[0]+ 'px';
-    thirdT.style.top = touch.touches[0].pageY + offset[1]+ 'px';
+    thirdT.style.left = touch.pageX + offset[0]+ 'px';
+    thirdT.style.top = touch.pageY + offset[1]+ 'px';
 });
 //esc
 function savePosition() {
