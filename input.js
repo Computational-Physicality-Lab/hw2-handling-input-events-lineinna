@@ -226,6 +226,26 @@ thirdT.addEventListener("click",(e)=>{
         selectedDiv.style.backgroundColor = "#00f";
     }
 })
+workspace.document.ontouchstart = function (e) {
+    if(e.touches.length>1){
+        isTouch = false;
+        alert('dbtouch')
+    }else{
+        mousePosition = {
+            x : event.clientX,
+            y : event.clientY
+        };
+        mouseDownDiv.style.left = (mousePosition.x ) + 'px';
+        mouseDownDiv.style.top  = (mousePosition.y ) + 'px';
+        document.ontouchstart = function (e) {
+            if(e.touches.length>1){
+                isTouch = false;
+                alert('dbtouch')
+            }
+        };
+        isMoved=true;
+    }
+};
 workspace.addEventListener("click",(e)=>{
     if(e.target.id=="workspace"){
         if(isTouch){
