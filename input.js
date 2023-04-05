@@ -24,6 +24,20 @@ firstT.addEventListener('touchstart',(e) => {
         firstT.offsetTop - touch.pageY
     ];
 });
+secondT.addEventListener('touchstart',(e) => {
+    var touch = e.targetTouches[0];
+    offset = [
+        secondT.offsetLeft - touch.pageX,
+        secondT.offsetTop - touch.pageY
+    ];
+});
+thirdT.addEventListener('touchstart',(e) => {
+    var touch = e.targetTouches[0];
+    offset = [
+        thirdT.offsetLeft - touch.pageX,
+        thirdT.offsetTop - touch.pageY
+    ];
+});
 firstT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
     firstT.style.left = touch.pageX + offset[0] + 'px';
