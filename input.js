@@ -182,6 +182,7 @@ document.addEventListener('mousemove', function(event) {
         document.ontouchstart = function (e) {
             if(e.touches.length>1){
                 isTouch = false;
+                alert('dbtouch')
             }
         };
     }
