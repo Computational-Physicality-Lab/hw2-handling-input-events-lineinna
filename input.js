@@ -30,13 +30,21 @@ document.addEventListener('touchstart',(e)=>{
 document.addEventListener('touchmove',(e)=>{
     if(e.touches.length===2&&selectedDiv!=null){
         e.preventDefault();
-        distanceX = -(e.touches[0].pageX-e.touches[1].pageX-firstFinger[0]+secondFinger[0]);
-        distanceY = -(e.touches[0].pageY-e.touches[1].pageY-firstFinger[1]+secondFinger[1]);
+        if(e.touches[0].pageX-e.touches[1]>0){
+            distanceX = (e.touches[0].pageX-e.touches[1].pageX-firstFinger[0]+secondFinger[0]);
+        }else{
+            distanceX = -(e.touches[0].pageX-e.touches[1].pageX-firstFinger[0]+secondFinger[0]);
+        }
+        if(e.touches[0].pageY-e.touches[1]>0){
+            distanceY = (e.touches[0].pageY-e.touches[1].pageY-firstFinger[1]+secondFinger[1]);
+        }else{
+            distanceY = -(e.touches[0].pageY-e.touches[1].pageY-firstFinger[1]+secondFinger[1]);
+        }
         if(distanceX*distanceX>distanceY*distanceY){
             // console.log(selectedDiv.style.width)
             // console.log("x"+distanceX)
             console.log(distanceX+parseInt(selectedDiv.style.width,10))
-            if((distanceX+parseInt(selectedDiv.style.width,10)/100)*(distanceX+parseInt(selectedDiv.style.width,10)/100)<100){
+            if((distanceX+parseInt(selectedDiv.style.width,10))*(distanceX+parseInt(selectedDiv.style.width,10))<100){
                 selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))/1+'px';
             }else{
                 selectedDiv.style.width=10+'px';   
@@ -45,7 +53,7 @@ document.addEventListener('touchmove',(e)=>{
             // console.log(selectedDiv.style.width)
             // console.log("y"+distanceY)
             console.log(distanceY+parseInt(selectedDiv.style.height,10))
-            if((distanceY+parseInt(selectedDiv.style.height,10)/100)*(distanceY+parseInt(selectedDiv.style.height,10)/100)<100){
+            if((distanceY+parseInt(selectedDiv.style.height,10))*(distanceY+parseInt(selectedDiv.style.height,10))<100){
                 selectedDiv.style.height=(distanceY+parseInt(selectedDiv.style.height,10))/1+'px';
             }else{
                 selectedDiv.style.height=10+'px';
