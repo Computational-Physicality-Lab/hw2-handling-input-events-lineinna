@@ -56,6 +56,7 @@ firstT.addEventListener('touchmove',(e) => {
         if(distanceX*distanceX>distanceY*distanceY){
             if(distanceX>0){
                 firstT.style.width+=distanceX+'px';
+                alert('x become bigger'+distanceX+firstT.style.width)
             }else{
                 if(firstT.style.width>10+"px"){
                     firstT.style.width-=distanceX+'px';
