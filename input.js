@@ -45,13 +45,13 @@ firstT.addEventListener('touchmove',(e) => {
 });
 secondT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
-    secondT.style.left = touch.pageX + 'px';
-    secondT.style.top = touch.pageY + 'px';
+    secondT.style.left = touch.pageX + offset[0] + 'px';
+    secondT.style.top = touch.pageX + offset[1] + 'px';
 });
 thirdT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
-    thirdT.style.left = touch.pageX + 'px';
-    thirdT.style.top = touch.pageY + 'px';
+    thirdT.style.left = touch.pageX + offset[0] + 'px';
+    thirdT.style.top = touch.pageX + offset[1] + 'px';
 });
 //esc
 function savePosition() {
