@@ -38,7 +38,7 @@ document.addEventListener('touchmove',(e)=>{
             if(distanceX+parseInt(selectedDiv.style.width,10)/100>10){
                 selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))/100+'px';
             }else{
-                selectedDiv.style.width=10;   
+                selectedDiv.style.width=10+'px';   
             }
         }else{
             console.log(selectedDiv.style.width)
@@ -46,7 +46,7 @@ document.addEventListener('touchmove',(e)=>{
             if(distanceY+parseInt(selectedDiv.style.height,10)/100>10){
                 selectedDiv.style.height=(distanceY+parseInt(selectedDiv.style.height,10))/100+'px';
             }else{
-                selectedDiv.style.height=10;
+                selectedDiv.style.height=10+'px';
             }
         }
     }
