@@ -45,35 +45,35 @@ document.addEventListener('touchmove',(e)=>{
     if(e.touches.length===2&&selectedDiv!=null){
         e.preventDefault();
         if(e.touches[0].pageX-e.touches[1]>0){
-            distanceX = -(e.touches[0].pageX-e.touches[1].pageX-firstFinger[0]+secondFinger[0]);
+            distanceX = (e.touches[0].pageX-firstFinger[0])-(e.touches[1].pageX-secondFinger[0])
         }else{
-            distanceX = (e.touches[0].pageX-e.touches[1].pageX-firstFinger[0]+secondFinger[0]);
+            distanceX = -(e.touches[0].pageX-firstFinger[0])+(e.touches[1].pageX-secondFinger[0])
         }
         if(e.touches[0].pageY-e.touches[1]>0){
-            distanceY = -(e.touches[0].pageY-e.touches[1].pageY-firstFinger[1]+secondFinger[1]);
+            distanceY = (e.touches[0].pageY-firstFinger[1])-(e.touches[1].pageY-secondFinger[1])
         }else{
-            distanceY = (e.touches[0].pageY-e.touches[1].pageY-firstFinger[1]+secondFinger[1]);
+            distanceY = (e.touches[0].pageY-firstFinger[1])-(e.touches[1].pageY-secondFinger[1])
         }
         if(distanceX*distanceX>distanceY*distanceY){
             // console.log(selectedDiv.style.width)
             // console.log("x"+distanceX)
             console.log(distanceX+parseInt(selectedDiv.style.width,10))
             selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))/20+'px';
-            // if((distanceX+parseInt(selectedDiv.style.width,10))*(distanceX+parseInt(selectedDiv.style.width,10))<900){
-            //     selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))/1+'px';
-            // }else{
-            //     selectedDiv.style.width=30+'px';   
-            // }
+            if(selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))/20<20){
+                selectedDiv.style.width=(distanceX+parseInt(selectedDiv.style.width,10))/20+'px';
+            }else{
+                selectedDiv.style.width=20+'px';   
+            }
         }else{
             // console.log(selectedDiv.style.width)
             // console.log("y"+distanceY)
             console.log(distanceY+parseInt(selectedDiv.style.height,10))
             selectedDiv.style.height=(distanceY+parseInt(selectedDiv.style.height,10))/20+'px';
-            // if((distanceY+parseInt(selectedDiv.style.height,10))*(distanceY+parseInt(selectedDiv.style.height,10))<100){
-            //     selectedDiv.style.height=(distanceY+parseInt(selectedDiv.style.height,10))/1+'px';
-            // }else{
-            //     selectedDiv.style.height=30+'px';
-            // }
+            if((distanceY+parseInt(selectedDiv.style.height,10))/20<20){
+                selectedDiv.style.height=(distanceY+parseInt(selectedDiv.style.height,10))/20+'px';
+            }else{
+                selectedDiv.style.height=20+'px';
+            }
         }
     }
 });
