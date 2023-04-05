@@ -31,6 +31,7 @@ document.addEventListener('touchmove',(e)=>{
         let distanceX = e.touches[0].pageX-e.touches[1].pageY-firstFinger[0]+secondFinger[0];
         let distanceY = e.touches[0].pageX-e.touches[1].pageY-firstFinger[1]+secondFinger[1];
         if(distanceX*distanceX>distanceY*distanceY){
+            alert('x become bigger'+distanceX+selectedDiv.style.width)
             if(distanceX>0){
                 selectedDiv.style.width+=distanceX+'px';
                 alert('x become bigger'+distanceX+selectedDiv.style.width)
@@ -40,6 +41,7 @@ document.addEventListener('touchmove',(e)=>{
                 }
             }
         }else{
+            alert('x become bigger'+distanceX+selectedDiv.style.width)
             if(distanceY>0){
                 selectedDiv.style.height+=distanceY;
             }else{
