@@ -19,6 +19,10 @@ var isTouch = false;
 //touch&drag
 firstT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
+    offset = [
+        firstT.offsetLeft - touch.pageX,
+        firstT.offsetTop - touch.pageY
+    ];
     firstT.style.left = touch.pageX + 'px';
     firstT.style.top = touch.pageY + 'px';
 });
