@@ -15,18 +15,30 @@ var isTouch = false;
 //touch&drag
 firstT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
-    firstT.style.left = touch.pageX + 'px';
-    firstT.style.top = touch.pageY + 'px';
+    offset = [
+        firstT.offsetLeft - e.clientX,
+        firstT.offsetTop - e.clientY
+    ];
+    firstT.style.left = touch.pageX + offset[0]+ 'px';
+    firstT.style.top = touch.pageY + offset[1]+ 'px';
 });
 secondT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
-    secondT.style.left = touch.pageX + 'px';
-    secondT.style.top = touch.pageY + 'px';
+    offset = [
+        secondT.offsetLeft - e.clientX,
+        secondT.offsetTop - e.clientY
+    ];
+    secondT.style.left = touch.pageX + offset[0]+ 'px';
+    secondT.style.top = touch.pageY + offset[1]+ 'px';
 });
 thirdT.addEventListener('touchmove',(e) => {
     var touch = e.targetTouches[0];
-    thirdT.style.left = touch.pageX + 'px';
-    thirdT.style.top = touch.pageY + 'px';
+    offset = [
+        thirdT.offsetLeft - e.clientX,
+        thirdT.offsetTop - e.clientY
+    ];
+    thirdT.style.left = touch.pageX + offset[0]+ 'px';
+    thirdT.style.top = touch.pageY + offset[1]+ 'px';
 });
 //esc
 function savePosition() {
